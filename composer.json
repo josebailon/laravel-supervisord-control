@@ -19,11 +19,11 @@
             "JoseBailon\\LaravelSupervisordControl\\":"src/"
         }
     },
-        "extra":{
+    "extra":{
         "laravel":{
             "providers":[
                 "JoseBailon\\LaravelSupervisordControll\\LscServiceProvider"
             ]
         }
-
+    }
 }
