@@ -2,6 +2,7 @@
 
 namespace JoseBailon\LaravelSupervisordControl;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class LscServiceProvider extends ServiceProvider
@@ -13,6 +14,8 @@ class LscServiceProvider extends ServiceProvider
     {
         $this->registerBindings();
         $this->registerPublishing();
+        $this->registerViews();
+        $this->registerRoutes();
     }
     /**
      * REGISTER
@@ -51,5 +54,30 @@ class LscServiceProvider extends ServiceProvider
 
             return new \Supervisor\Api();
         });
+    }
+    /**
+     * VIEWS
+     */
+    protected function registerViews()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'lsc');
+    }
+
+    /**
+     * RUTAS
+     */
+    protected function registerRoutes()
+    {
+        Route::group($this->routesConfig(), function () {
+            $this->loadroutesFrom(__DIR__ . '/../routes/web.php');
+        });
+    }
+
+    protected function routesConfig()
+    {
+        return [
+            'prefix' => config('jbosupervisord.route_prefix'),
+            'namespace' => 'JoseBailon\LaravelSupervisordControl\http\Controllers'
+        ];
     }
 }

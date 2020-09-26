@@ -6,5 +6,5 @@ return [
 
     'password' => 'password',
 
-    'campo' => '3'
+    'route_prefix' => 'supervisord'
 ];
