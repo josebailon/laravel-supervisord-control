@@ -13,5 +13,17 @@
     ],
     "require-dev": {
         "orchestra/testbench": "^6.1"
-    }
+    },
+        "autoload": {
+        "psr-4": {
+            "JoseBailon\\LaravelSupervisordControl\\":"src/"
+        }
+    },
+        "extra":{
+        "laravel":{
+            "providers":[
+                "JoseBailon\\LaravelSupervisordControll\\LscServiceProvider"
+            ]
+        }
+
 }
