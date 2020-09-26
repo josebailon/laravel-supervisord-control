@@ -50,10 +50,12 @@ class LscServiceProvider extends ServiceProvider
      */
     protected function registerBindings()
     {
-        $this->app->singleton('\Supervisor\Api', function ($app) {
+
+        /*
+        $this->app->when('')singleton('\Supervisor\Api', function ($app) {
 
             return new \Supervisor\Api(config('jbosupervisord.host'), config('jbosupervisord.port'), config('jbosupervisord.username'), config('jbosupervisord.password'));
-        });
+        });*/
     }
     /**
      * VIEWS
