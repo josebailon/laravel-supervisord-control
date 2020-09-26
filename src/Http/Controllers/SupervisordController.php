@@ -1,6 +1,6 @@
 <?php
 
-namespace JoseBailon\LaravelSupervisordControl;
+namespace JoseBailon\LaravelSupervisordControl\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 
