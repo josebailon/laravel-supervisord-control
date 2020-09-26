@@ -6,5 +6,5 @@ return [
 
     'password' => 'password',
 
-    'campo' => 'campo'
+    'campo' => 'campoa'
 ];
