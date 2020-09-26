@@ -4,5 +4,7 @@ return [
 
     'username' => 'user',
 
-    'password' => 'password'
+    'password' => 'password',
+
+    'campo' => 'campo'
 ];
