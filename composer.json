@@ -1,0 +1,17 @@
+{
+    "name": "josebailon/laravel-supervisord-control",
+    "description": "Package for Laravel for controlling Supervisord processes.",
+    "require": {
+        "ihor/supervisor-xml-rpc": "^0.2.1"
+    },
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Jose Javier Bailon Ortiz",
+            "email": "josebailon@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^6.1"
+    }
+}
