@@ -50,9 +50,9 @@ class LscServiceProvider extends ServiceProvider
      */
     protected function registerBindings()
     {
-        $this->app->singleton('Conector', function ($app) {
+        $this->app->singleton('LscConector', function ($app) {
 
-            return new \Supervisor\Api();
+            return new \Supervisor\Api(config('jbosupervisord.host'), config('jbosupervisord.port'), config('jbosupervisord.username'), config('jbosupervisord.password'));
         });
     }
     /**
@@ -77,7 +77,7 @@ class LscServiceProvider extends ServiceProvider
     {
         return [
             'prefix' => config('jbosupervisord.route_prefix'),
-            'namespace' => 'JoseBailon\LaravelSupervisordControl\http\Controllers'
+            'namespace' => 'JoseBailon\LaravelSupervisordControl\Http\Controllers'
         ];
     }
 }

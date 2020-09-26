@@ -2,4 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('inicio', 'SupervisordController@index');
+Route::get('/', 'SupervisordController@index');
