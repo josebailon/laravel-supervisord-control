@@ -22,7 +22,7 @@
     "extra":{
         "laravel":{
             "providers":[
-                "JoseBailon\\LaravelSupervisordControll\\LscServiceProvider"
+                "JoseBailon\\LaravelSupervisordControl\\LscServiceProvider"
             ]
         }
     }
