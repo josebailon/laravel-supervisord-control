@@ -1,6 +1,6 @@
 # JBO Laravel Supervisord Control Panel
 
-This Laravel package generates a panel where Supervisord can be controlled through HTTP/XML-RPC requests under the hood.
+This Laravel package generates a panel where [Supervisord](http://supervisord.org/) can be controlled through HTTP/XML-RPC requests under the hood.
 
 ### Instalation
 ```
