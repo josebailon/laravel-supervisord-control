@@ -20,10 +20,7 @@ To publish used view to /resources/views/vendor/lsc
 php artisan vendor:publish --tag=lsc-views
 ```
 
-#### Options on configuration file
-
-
-<?php
+#### Options in configuration file
 
 |Field|Default|Description|
 |---|---|---|
@@ -31,4 +28,7 @@ php artisan vendor:publish --tag=lsc-views
 |port| 9001|Port where Supervisord is listening|
 |username|user|User name allowed to authenticate with Supervisord|
 |password|password|Pasword for that user|
-|route_prefix|supervisord|Prefix added to routes used by this package. Control pannel can be accessed in this prefix. for example https://domain/supervisord|
+|route_prefix|supervisord|Prefix added to routes used by this package. Control pannel can be accessed in this prefix. for example *https://domain/supervisord*|
+|midlewares|null|Middlewares applied to routes used by this package. It is usefull to add the auth middleware if needed. You can specify several middlewares in a comma separated string: 'auth,othermiddleware'
+|extend_view|false|You can specify a string with the blade path of a view in order to be extended. For example if you want to extend a layout called *'layouts.path'* you must specify the string in this field: *'layouts.app'*. In order for this to work, next field called *section* must be also populated|
+|section|false| Must contain an string with the name of the *@yield* directive  where the view will be shown. For example if the extended view have a blade operator *@yield('content')* you should specify *'content'* in this field|
