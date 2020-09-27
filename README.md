@@ -56,4 +56,4 @@ php artisan vendor:publish --tag=lsc-views
 
 *index.blade.php* is the main view called by this package. You can override the extending view behaviour in that file.
 
-*content.blade.php* is the view containing all tables and buttons. You can edit css classes to your needs in that file.
+*content.blade.php* is the view containing all tables and buttons. You can edit css classes in that file to suit your needs.
