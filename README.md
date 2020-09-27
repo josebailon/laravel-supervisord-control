@@ -1,6 +1,6 @@
 # laravel-supervisord-control
 
-Laravel package for controlling Supervisord processes through HTTP/XML-RPC requests.
+This Laravel package generates a panel where Supervisord can be controlled through HTTP/XML-RPC requests under the hood.
 
 ### Instalation
 ```
