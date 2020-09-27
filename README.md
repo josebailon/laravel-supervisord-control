@@ -2,5 +2,7 @@
 
 Laravel package for controlling Supervisord processes.
 
-## Instalation
+### Instalation
 composer require josebailon/laravel-supervisord-control
+
+### Configuration
