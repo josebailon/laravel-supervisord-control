@@ -1,6 +1,6 @@
 {
     "name": "josebailon/laravel-supervisord-control",
-    "description": "Package for Laravel for controlling Supervisord processes.",
+    "description": "Laravel package for controlling Supervisord processes.",
     "require": {
         "ihor/supervisor-xml-rpc": "^0.2.1"
     },

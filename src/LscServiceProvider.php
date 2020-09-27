@@ -12,10 +12,10 @@ class LscServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerBindings();
-        $this->registerPublishing();
-        $this->registerViews();
-        $this->registerRoutes();
+        $this->bootBindings();
+        $this->bootPublishing();
+        $this->bootViews();
+        $this->bootRoutes();
     }
     /**
      * REGISTER
@@ -23,6 +23,8 @@ class LscServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerCommands();
+        //config
+        $this->mergeConfigFrom(__DIR__ . '/../config/jbosupervisord.php', 'jbosupervisord');
     }
     /**
      * COMANDOS
@@ -36,7 +38,7 @@ class LscServiceProvider extends ServiceProvider
     /**
      * PUBLICABLES
      */
-    protected function registerPublishing()
+    protected function bootPublishing()
     {
         $this->publishes(
             [
@@ -44,23 +46,27 @@ class LscServiceProvider extends ServiceProvider
             ],
             'lsc-config'
         );
+        $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/lsc')], 'lsc-views');
     }
     /**
      * BINDINGS
      */
-    protected function registerBindings()
+    protected function bootBindings()
     {
 
-        /*
-        $this->app->when('')singleton('\Supervisor\Api', function ($app) {
-
-            return new \Supervisor\Api(config('jbosupervisord.host'), config('jbosupervisord.port'), config('jbosupervisord.username'), config('jbosupervisord.password'));
-        });*/
+        $this->app->bind('Supervisor\Api', function ($app) {
+            $lscconector = new \Supervisor\Api(config('jbosupervisord.host'), config('jbosupervisord.port'), config('jbosupervisord.username'), config('jbosupervisord.password'));
+            try {
+                $lscconector->getApiVersion();
+            } catch (\Throwable $th) {
+            }
+            return $lscconector;
+        });
     }
     /**
      * VIEWS
      */
-    protected function registerViews()
+    protected function bootViews()
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'lsc');
     }
@@ -68,7 +74,7 @@ class LscServiceProvider extends ServiceProvider
     /**
      * RUTAS
      */
-    protected function registerRoutes()
+    protected function bootRoutes()
     {
         Route::group($this->routesConfig(), function () {
             $this->loadroutesFrom(__DIR__ . '/../routes/web.php');
@@ -79,7 +85,8 @@ class LscServiceProvider extends ServiceProvider
     {
         return [
             'prefix' => config('jbosupervisord.route_prefix'),
-            'namespace' => 'JoseBailon\LaravelSupervisordControl\Http\Controllers'
+            'namespace' => 'JoseBailon\LaravelSupervisordControl\Http\Controllers',
+            'middleware' => array_filter(array_unique(array_merge(['web'], explode(',', config('jbosupervisord.midlewares')))))
         ];
     }
 }
