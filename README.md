@@ -7,7 +7,7 @@ This Laravel package generates a panel where Supervisord can be controlled throu
 composer require josebailon/laravel-supervisord-control
 ```
 
-## Route name
+### Route name
 Route to control panel can be referenced with name *lsc_index*
 ```
 <?php
