@@ -49,7 +49,7 @@ Supervisor must have configured [inet_http_server](http://www.supervisord.org/co
 ### Customizing the view
 The default view has Bootstrap css clases in its elements. If you want to behave like that simply add Bootstrap to the extended view used.
 
-If you whant to customize the view, publish the views to /resources/views/vendor/lsc using:
+If you want to customize the view, publish the views to /resources/views/vendor/lsc using:
 ```
 php artisan vendor:publish --tag=lsc-views
 ```
